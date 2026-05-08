@@ -39,16 +39,20 @@ def main():
         serv_sock.bind((serv_ip, serv_port))# ((IP주소, 포트번호)) 튜플로 묶어서 전달) 두번 묶는 이유는 bind함수의 인자가 튜플(묶음 형태)이기 때문
     except :
         error_handling("bind() error")
+    serv_sock.settimeout(1.0) # 소켓에 타임아웃 설정 1초마다 빠져나와 신호 확인
 #================================================step4. listen====================================================================================================
-    serv_sock.listen(5) # 5는 대기 큐의 크기, 클라이언트가 동시에 여러개 접속할 수 있는데 그 중에서 몇개까지 대기할 수 있는지 설정하는 것
+    serv_sock.listen(2) # 2는 대기 큐의 크기, 클라이언트가 동시에 여러개 접속할 수 있는데 그 중에서 몇개까지 대기할 수 있는지 설정하는 것
     print("Multi-process server started!") # 서버 시작 메시지 출력
 #================================================step5. accept====================================================================================================
     while True: # 클라이언트 접속을 계속 받기 위해 무한 루프 
-        try: 
-            clnt_sock, clnt_addr = serv_sock.accept() # 클라이언트가 접속하면 accept함수가 클라이언트 소켓과 클라이언트 주소를 반환 
-            print(f"new client connected") # 클라이언트 접속 시마다 메시지 출력
+        try:
+            try: 
+                clnt_sock, clnt_addr = serv_sock.accept() # 클라이언트가 접속하면 accept함수가 클라이언트 소켓과 클라이언트 주소를 반환 
+                print(f"new client connected") # 클라이언트 접속 시마다 메시지 출력
+            except socket.timeout:
+                continue # accept 함수가 타임아웃되면 계속해서 다음 클라이언트 접속을 기다림
         except KeyboardInterrupt:
-            break # 키보드 인터럽트(예: Ctrl+C)가 발생하면 루프 탈출
+            break # 키보드 인터럽트(예: Ctrl+C)가 발생하면 루프 탈출 근데 안되는 
         except Exception:
             continue # 다른 예외가 발생하면 계속해서 다음 클라이언트 접속을 기다림
 
@@ -64,3 +68,19 @@ if __name__ == "__main__":
     main()
 
 #이 코드는 멀티프로세싱을 사용하여 여러 클라이언트를 동시에 처리하는 TCP 서버입니다.
+
+# timeout과 KeyboardInterrupt 예외 처리 설명
+
+# timeout 예외는 accept 함수가 설정된 시간(1초) 동안 클라이언트 접속을 기다리다가
+
+# 클라이언트가 접속하지 않으면 발생하는 예외입니다. 이 예외가 발생하면 continue 문을 실행하여 다음 클라이언트 접속을 계속 기다립니다.
+
+# KeyboardInterrupt 예외는 사용자가 키보드 인터럽트(예: Ctrl+C)를 발생시켰을 때 발생하는 예외입니다. 
+
+# 이 예외가 발생하면 break 문을 실행하여 루프를 탈출하고 서버를 종료합니다.
+
+# timeout없이 keyboardinterrupt 예외 처리만 하면 ctrl+c로 서버를 종료할 때
+
+# accept 함수가 클라이언트 접속을 기다리면서 블로킹 상태가 되기 때문에 키보드 인터럽트가 발생해도 서버가 즉시 종료되지 않고 
+
+# accept 함수가 클라이언트 접속을 기다리는 동안 블로킹 상태가 되어서 키보드 인터럽트가 발생해도 서버가 즉시 종료되지 않는 문제가 발생할 수 있습니다.
