@@ -66,8 +66,10 @@ if __name__ == "__main__":
 
 # 이것은 server_socket 객체의 listen() 함수를 호출하는 코드입니다.
 
-# 레포지토리에 현재 폴더 파일 넣는 명령어 
-# 원하는 레포지토리에 현재 폴더의 파일을 넣는 명령어는 다음과 같습니다.
+# server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# https://github.com/wjswpdbs7-code/capturetans.git 여기에 현재 폴더의 파일을 넣고 싶다면
-# https://github.com/wjswpdbs7-code/capturetans.git 
+# 인자에도 socket.을 붙이는 이유는 socket 모듈에서 제공하는 상수와 함수를 사용하기 때문입니다.
+
+# socket.AF_INET와 socket.SOCK_STREAM는 socket 모듈에서 정의된 상수입니다.
+
+# 정의에 AF_INET: Final = AddressFamily.AF_INET 이렇게 되어 있는데
