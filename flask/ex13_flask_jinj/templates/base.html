@@ -1,25 +1,18 @@
-<!--
 
-base.html:
-
-HTML 템플릿의 기본 구조와 공통 요소를 정의할 수 있습니다.
-
-예를 들어, 헤더, 네비게이션 바, 푸터 등을 포함할 수 있습니다. 
-
--->
-<!DOCTYPE html>                                                     <!-- HTML5 문서임을 선언합니다. -->
-<html lang="ko">                                                    <!-- 언어를 한국어로 설정합니다. -->
-    <head>                                                              <!-- 메타데이터(예시: 문자 인코딩, 제목, 스타일 시트 링크 등)를 포함하는 head 요소입니다. -->
-        <meta charset="UTF-8">                                              <!-- 문자 인코딩을 UTF-8로 설정합니다. -->
-        <title>{% block title %} Flask App {% endblock %}</title>           <!-- HTML 문서의 제목을 설정합니다. {% block title %}과 {% endblock %} 사이에 다른 템플릿에서 제목을 정의할 수 있습니다. -->
-        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> <!-- CSS 스타일 시트를 링크합니다. url_for 함수를 사용하여 static 폴더 내의 css/style.css 파일의 URL을 생성합니다. -->
+<!DOCTYPE html>                                                  
+<html lang="ko">                                                    
+    <head>                                                            
+        <meta charset="UTF-8">                                              
+        <title>{% block title %} Flask App {% endblock %}</title>           
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> 
     </head>
-    <body>                                                              <!-- 웹 페이지의 본문을 나타내는 body 요소입니다. -->
-        <nav>                                                               <!-- 네비게이션 바를 나타내는 nav 요소입니다. -->
-            <h2> My Flask website </h2>                                   <!-- 네비게이션 바의 제목입니다. -->      
-        </nav>                                                              <!-- 네비게이션 바의 끝입니다. -->
-        <main>                                                              <!-- 웹 페이지의 주요 콘텐츠를 나타내는 main 요소입니다. -->
-            {% block content %} {% endblock %}                                       <!-- 다른 템플릿에서 콘텐츠를 정의할 수 있는 블록입니다. -->
-        </main>                                                             <!-- 주요 콘텐츠의 끝입니다. -->
-    </body>                                                             <!-- 웹 페이지의 본문 끝입니다. -->                                 
-</html>                                                             <!-- HTML 문서의 끝입니다. -->
+    <body>                                                              
+        <nav>                                                               
+            <h2> My Flask website </h2>                                   
+        </nav>                                                              
+        <main>                                                              
+            {% block content %} {% endblock %}                                       
+        </main>                                                            
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>                                               
+    </body>                                                            
+</html>                                                                

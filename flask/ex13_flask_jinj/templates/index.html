@@ -1,32 +1,30 @@
-<!--
 
-index.html
+{% extends 'base.html' %}
 
-index.html은 base.html을 확장하여 웹 페이지의 콘텐츠를 정의하는 템플릿입니다.
+{% block title %} 홈 페이지 - {{title}} {% endblock %} 
+{% block content %}
+    <h1> 반갑습니다. {{ user.username }}님! </h1>
+    <p> 당신의 등급은 {{ user.level }}입니다. </p>
+    <p> 우리의 차수는 {{ chasu + 1 }}차입니다. </p>
+    <h2> 오늘의 상태 </h2> 
+    {% if on_class %} 
+        <p> 오늘은 수업 중 </p> 
+    {% else %} 
+        <p> 오늘은 휴강일 </p>
+    {% endif %}
 
-base.html에서 상속받은 구조를 유지하면서, index.html에서는 사용자 정보와 할 일 목록을 표시하는 콘텐츠를 추가합니다.
-
-{% block %}과 {% endblock %} 사이에 콘텐츠를 작성하여 base.html에서 정의된 블록을 오버라이드할 수 있습니다.
-
-base.html에서 한번에 하지 않는 이유는 여러 페이지에서 공통적으로 사용할 수 있는 구조와 스타일을 정의하기 위해서입니다.(상속의 개념)
--->
-
-{% extends 'base.html' %} <!-- base.html을 확장하여 index.html이 base.html의 구조와 스타일을 상속받도록 합니다. -->
-
-{% block title %} 홈 페이지 {% endblock %} <!-- base.html에서 정의된 title 블록을 오버라이드하여 페이지 제목을 "홈 페이지"로 설정합니다. -->
-
-{% block content %} {% endblock %} <!-- block content를 오버라이드(덮어쓰기)하여 index.html에서 콘텐츠를 정의할 수 있도록 합니다. -->
-    <h1> 반갑습니다. {{ user.username }}님! </h1> <!-- 사용자 이름을 표시하는 제목입니다. {{ user.username }}는 main.py에서 전달된 user_info 딕셔너리의 username 값을 참조합니다. -->
-    <p> 당신의 등급은 {{ user.level }}입니다. </p> <!-- 사용자 등급을 표시하는 단락입니다. {{ user.level }}는 main.py에서 전달된 user_info 딕셔너리의 level 값을 참조합니다. -->
-    <h2> 오늘의 할 일 </h2> <!-- 오늘의 할 일을 표시하는 제목입니다. -->
-    <ul> <!-- 할 일 목록을 표시하는 순서 없는 리스트입니다. -->
-        {% for item in tasks %} <!-- 반복문을 사용하여 tasks 리스트의 각 항목을 item 변수 사용하게 합니다. -->
-            <li> {{ item }} </li> <!-- 각 할 일 항목을 리스트 아이템으로 표시합니다. {{ item }}는 main.py에서 전달된 items 리스트의 각 항목을 참조합니다. -->
-        {% endfor %} <!-- 반복문의 끝을 나타냅니다. -->
-    </ul> <!-- 할 일 목록의 끝을 나타냅니다. -->
-{% endblock %}
-
-
+    <h2> 오늘의 할 일 </h2> 
+    <ul> 
+        {% for item in tasks %} 
+            <li> {{ item }} </li> 
+        {% endfor %} 
+    </ul> 
+    <button onclick="showAlert()"> 클릭 해보세요 </button>
+    <div class="img-box"> 
+        <p> 정적 이미지</p> 
+        <img width="100" src="{{ url_for('static', filename='images/logo.jpg') }}"> 
+    </div> 
+{% endblock %} 
 
 
-    <!--
+
