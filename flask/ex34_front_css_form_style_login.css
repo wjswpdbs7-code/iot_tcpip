@@ -1,0 +1,40 @@
+/* ex34_front_css_form_style_login.css */
+
+body {
+    background-color: rgb(190, 190, 190);
+}
+
+.login1{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 400px;
+    margin: 50px auto; /* 가운데 정렬 최소한의 여백 */
+    padding: 10px;
+}
+.login1 legend {
+    font-size: 16px;
+    font-weight: bold;
+}
+.login1 ul {
+    list-style: none;
+    line-height: 40px;
+}
+.login1 ul li {
+    list-style: none;
+    line-height: 40px;
+    display: flex; /* 자식요소(label과 input)를 가로로 배치 */
+    align-items: center
+}
+
+.login1 label {
+    width: 100px;
+}
+
+.login1 input {
+    flex-grow: 1;
+    width: 150px;
+}
+.login1 input[required] { /* []에는 조건 속성값이 들어감 */ 
+    border: 1px solid red;
+}

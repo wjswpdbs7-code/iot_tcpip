@@ -1,0 +1,58 @@
+<!-- ex30_front_css_basic.html -->
+ <!-- ex30_front_css_basic.css를 적용한 html 파일입니다.   -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ex30_front_css_basic.css">
+    <style>
+        div, p{
+            color: blue;
+        }
+        div p{
+            color: red;
+        }
+        #id1{
+            color: rgb(255, 0, 0);
+        }
+        .yellow{
+            color: rgba(172, 155, 0, 0.808);
+        }
+        .c1 a{
+            [href]{color : green;}
+            }
+        </style>
+</head>
+<body>
+
+    <div class = "c1">
+        <a href = "">a1</a>
+    </div>
+
+
+    <p>이줄은 p 요소. 스타일 만들때 ,로 여러개의 변수에 같은 스타일을 적용할 수 있음.</p>
+
+    <div>
+        <p>[div p] 로 스타일을 만든경우(띄어쓰기) div 안에 있는 p 요소에 스타일이 적용됨 </p>
+    </div>
+
+    <div>div 요소. html에서 직접 지정하거나 css 파일에서 지정하여 스타일을 적용할 수 있음.<br>
+        우선순위는 인라인 순서로 결정</div>
+    <div style = "color: chartreuse;">태그에 직접 적용한 div. 가장 우선순위가 높긴한데 웬만하면 사용하지 마셈</div>
+    <div id = "id1">id1을 사용한 div </div>
+    <div class = "yellow">클래스를 사용한 div </div>
+    <div class = "yellow">클래스를 사용한 div </div>
+    <div class = "yellow">클래스를 사용한 div </div>
+
+    <button onclick = "my_display()">ㅋㅋ</button>
+    
+    <script>
+        function my_display(x){
+            document.getElementById("id1").innerHTML = "ㅋㅋ";
+        }
+    </script>
+</body>
+</html>
+

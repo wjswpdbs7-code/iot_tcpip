@@ -1,0 +1,65 @@
+<!-- ex26_front_html_form.html -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h1>Form Test</h1>
+    <form>
+        <fieldset>
+            <legend>그룹 1</legend>
+            <label>ID<input type = "text" name = "userid" value="ID를 입력하세요" size = "10" maxsize = "20">
+            </label>
+            <label>PW<input type = "password" name = "userpw" size = "10" maxsize = "20">
+            </label>
+            <input type = "submit" value = "제출">  
+        </fieldset>
+        <fieldset>
+            <div>Text input<input type = "text"></div>
+            <div>url input<input type = "url"></div>
+            <div>search input<input type = "search"></div>
+            <div>email input<input type = "email"></div>
+            <div>phone input<input type = "tel" name="phone"></div>
+            
+            <div><input type = "submit" value = "제출">  </div>
+            
+            <div><input type = "datetime-local" name="datetime-local"></div>
+            <div><input type = "month" name="month"></div>
+            <div><input type = "date" name="date"></div>
+            <div><input type = "color" name="color"></div>
+
+        </fieldset>
+
+        <fieldset>
+            <p>여러개 선택 : checkbox</p>
+            오늘 점심 같이 먹을 사람?
+            <p><label><input type = "checkbox" name = "lunch_member" value="kdk" checked>김도경</label></p>
+            <p><label><input type = "checkbox" name = "lunch_member" value="psy">박시영</label></p>
+            <p><label><input type = "checkbox" name = "lunch_member" value="lss">이상수</label></p>
+            <p><label><input type = "checkbox" name = "lunch_member" value="jjy">전제윤</label></p>
+            <p>한개 선택 : radiobox</p>
+            <p><label><input type = "radio" name = "lunch_menu" value="noodel" checked>쌀국수</label></p>
+            <p><label><input type = "radio" name = "lunch_menu" value="bibimbap">비빔밥</label></p>
+            <p><label><input type = "radio" name = "lunch_menu" value="kimchizzige">김치찌개</label></p>
+        </fieldset>
+        <fieldset>
+            <input type = "text" name = "readonly_input" value = "여기는 읽기 전용" readonly> <!-- readonly : 읽기 전용 -->
+            <input type = "text" name = "required_input" value = "여기는 필수 입력" required> <!-- required : 필수 입력 -->
+            <input type = "text" name = "placeholder_input" placeholder = "여기에 이름을 입력하세요"> <!-- placeholder : placeholder -->
+            <input type = "text" name = "normal_input" value = "여기에 이름을 입력하세요"> <!-- placeholder : placeholder -->
+        </fieldset>
+        </form>
+    <div>안녕하세요</div>
+    <p>안녕하세요</p>
+ </body>
+ </html>
+ 
+
+ <!-- http://127.0.0.1:5500/iot_tcpip/flask/ex26_front_html_form.html?userid=jjy&userpw=1234 -->
+  <!-- 제출하니 바뀜 -->
+   <!-- 실제로는 자바 스크립트로 폼을 제출하는 경우가 많음.  위에처럼  url에 노출될 수 있기 때문.  -->  
+

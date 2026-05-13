@@ -17,7 +17,7 @@ def main():
     serv_port = int(sys.argv[2]) # 명령행 인자로 받은 포트 번호 ex) 8000
 #=================================================step2. 소켓 생성===================================================================================================
 
-    sock = socket.socket(socket.AF_INET,
+    sock = socket.socket(socket.AF_INET, 
                          socket.SOCK_STREAM,
                          0)
     try:

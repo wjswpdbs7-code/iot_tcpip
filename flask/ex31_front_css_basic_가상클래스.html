@@ -1,0 +1,77 @@
+<!-- ex31_front_css_basic_가상클래스.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상클래스</title>
+    <style>
+        .navi a:link, .navi a:visited { 
+            text-decoration: none;
+            color: white;
+            background-color: gray;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .navi a:hover, .navi a:focus { 
+            background-color: black;
+            color: white;
+        }
+        .navi a:active {
+            color: red;
+        }
+
+        .navi ul{
+            list-style: none;
+            display : flex;
+        }
+        /* .navi ul li{
+            float: left;
+            width: 150px;
+        } */
+        .navi ul li{
+            width: 150px;
+        }
+    </style>
+</head>
+    <body>
+        <div>
+            <p>:link</p>
+            <p>방문하지 않았을 때 - 파란 밑줄</p>
+
+            <p>:visited</p>
+            <p>방문했을 때 - 보라 밑줄</p>
+
+            <p>:hover</p>
+            <p>마우스를 올렸을 때</p>
+
+            <p>:active</p>
+            <p>누르기만 했을때(누르고 있는 상태)</p>
+
+            <p>:focus</p>
+            <p>포커스가 맞춰졌을 때(키보드 탭)
+
+            </p>
+        </div>
+        <nav class = "navi"> 이 줄의 뜻은 
+            <ul>
+                <li><a href = "#intro">안내</a></li><!-- a는 링크를 만드는 태그. href는 링크의 주소를 지정하는 속성. # 은 같은 페이지 내에서 이동할 때 사용하는 기호 -->
+                <li><a href = "#room">객실</a></li>
+                <li><a href = "#price">요금</a></li>
+                <li><a href = "#reservation">예약</a></li>
+            </ul>
+        </nav>
+        <br>
+        <hr>
+        <div class = "content"> 
+            <div id = "intro">이용 안내============= ============ ============= ============= ===== ======= ========== ======== ================= ================ ============ ====</div>
+            <div id = "room">객실 정보======= ==== ========= ===== ============== ========== ===================== ===== ======== ========= ============ ============ ==============</div>
+            <div id = "price">요금 정보================ ========== ===================== ================== ================ ============== =============== ============== =====</div>
+            <div id = "reservation">예약 정보=============== ========= ============== ================= =========== ==== =========== ================ ============  ======= ==============</div>
+        </div>
+        ====   ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ====  ==== 
+    </body> 
+</html>
+
+
