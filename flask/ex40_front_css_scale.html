@@ -1,0 +1,62 @@
+<!-- ex40_front_css_scale.html -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크기</title>
+    <style>
+        #container {
+            width: 800px; 
+            height: 200px;
+            margin: auto; 
+            background-color: yellow;
+        }
+        .origin {
+            width: 100px; 
+            height: 100px;
+            margin: 50px;
+            float: left; /*div는 기본적으로 아래로 정렬인것을 이 설정을 통해 왼쪽으로 정렬 */
+        }
+        .origin div {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid black;
+        }
+        #scalex:hover {/* 마우스 올렸을 때에만 */
+            transform: scaleX(2); /* X축으로 2배 확대 */
+        }
+        #scaley:hover {/* 마우스 올렸을 때에만 */
+            transform: scaleY(1.5); /* Y축으로 1.5배 확대 */
+        }
+        #scalexy:hover {/* 마우스 눌렀을 때만 */
+            transform: scale(0.7); /* X축과 Y축으로 모두 0.7배 축소 */
+        }
+            
+
+    </style>
+ </head>
+ <body>
+    <div id = "container" >컨테이너
+        <div class="origin">
+            <div id = "scalex">
+                item 1
+            </div>
+        </div>
+        <div class="origin">
+            <div id = "scaley">
+                item 2
+            </div>
+        </div>
+        <div class="origin">
+            <div id = "scalexy">
+                item 3
+            </div>
+        </div>
+    </div>
+        
+    </div>
+ </body>
+ </html>

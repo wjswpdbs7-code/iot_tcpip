@@ -1,0 +1,73 @@
+<!-- ex36_front_css_form_display.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디스플레이</title>
+    <style>
+        .toBlock {
+            display: block;
+        }
+        .toInline {
+            display: inline;
+            width: 200px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid black;
+        }
+        .toNone {
+            display: none;
+        }   
+        .toInlineBlock {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <p>블록 요소(block element): p와 div는 한줄씩 차지</p>
+    <p style="background-color: red;">첫번째 p</p>
+    <p style="background-color: blue;">두번째 p</p>
+    <p>inline 요소: img, span 컨탠츠가 필요한 만큼만 차지</p>
+    <img src="img/google_logo.jpg" width="50px">
+    <img src="img/google_logo.jpg" width="50px">
+
+    <div>
+        <h1>display : block(한 줄에 하나씩)</h1>
+        <span class = "toBlock">span to div</span>
+        <span class = "toBlock">span to div</span>
+        <span class = "toBlock">span to div</span>
+    </div>
+    <div>
+        <h1>display : inline(한 줄에 여러 개)</h1>
+        <div class = "toInline">div to span</div>
+        <div class = "toInline">div to span</div>
+        <div class = "toInline">div to span</div>
+    </div>
+
+    <div>
+        <h1>display : inline-block()</h1>
+        <div class = "toInlineBlock">div to inline-block</div>
+        <div class = "toInlineBlock">div to inline-block</div>
+        <div class = "toInlineBlock">div to inline-block</div>
+    </div>
+
+    <!-- <div>
+        <h1>display : inline(한 줄에 여러 개)</h1>
+        <div class = "toInline">div to span</div>
+        <div class = "toInline">div to span</div>
+        <div class = "toInline">div to span</div>
+    </div> -->
+
+    <div>
+        <h1>display : none(숨김)</h1>
+        <p class = "toNone">이 문장은 보이지 않습니다.</p>
+        <p>이 문장은 보입니다.</p>
+    </div>
+</body>
+</html>

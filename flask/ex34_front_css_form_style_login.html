@@ -28,21 +28,43 @@
                     <label for="level">회원등급</label>
                     <input id="level" name="level" type="text" value="준회원" readonly>
                 </li>
-            </ul>
+            </ul>   
         </fieldset> 
 
         <fieldset>
             <legend>개인 정보</legend>
+                <ul>
+                    <li>
+                        <label for = "username">성명</label>
+                        <input id = "username" name = "username" type = "text" placeholder = "5자미만 공백없이" required>
+                    </li>
+                    <li>
+                        <label for = "useremail">이메일</label>
+                        <input id = "useremail" name = "useremail" type = "email" placeholder = "abc@domain.com" required>
+                    </li>
+                    <li>
+                        <label for = "userphone">연락처</label>
+                        <input id = "userphone" name = "userphone" type = "tel"placeholder = "010-1234-5678">
+                    </li> 
+                </ul>
         </fieldset>
-
+    
         <fieldset>
             <button type="submit">제출</button>
         </fieldset>
     </form>
     
-    <div>안녕하세요</div>
+    <div>안녕하세요
+        안녕하세요
+    </div>
     
-    <p>안녕하세요</p>
+    <p>안녕하세요
+        안녕하세요
+    </p>
     
 </body>
 </html>
+
+로그인을 할때 
+required가 아닌 부분은 타입값에 맞지 않게 입력해도 제출이 가능한
+http://127.0.0.1:5500/iot_tcpip/flask/ex34_front_css_form_style_login.htm?userid=aa&pw1=bb&pw2=bb&level=%EC%A4%80%ED%9A%8C%EC%9B%90&name=jjy&email=xxx%40gmail.com&phone=010-2222-3333

@@ -1,0 +1,81 @@
+<!-- ex43_front_css_transition-type.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변형</title>
+    <style>
+        .box {
+            margin: 20px;
+            text-align: center;
+            height: 30px;
+            width: 200px;
+            background-color: orange;
+            line-height: 30px; /* 글자를 상하로 센터에 위치시키기 위해 추가 */
+        }
+        #ex:hover div{
+            width: 400px;
+        }
+        
+        .box1 {
+            transition: 5s ease; 
+            transition-delay: 2s; /* 전환이 시작되기 전에 2초 대기 */
+        }
+        .box2 {
+            transition: 5s linear; 
+            transition-delay: 2s; 
+        }
+        .box3 {
+            transition: 5s ease-in; 
+        }
+        .box4 {
+            transition: 5s ease-out; 
+        }
+        .box5 {
+            transition: 5s ease-in-out; 
+        }
+
+        .box6 {
+            transition: 5s cubic-bezier(0.25, 0.1, 0.25, 1); /* ease와 동일한 효과 */
+        }
+        .box7 {
+            transition: 5s cubic-bezier(0.25, 0.25, 0.75, 0.75); /* linear와 동일한 효과 */
+        }
+        .box8 {
+            transition: 5s cubic-bezier(0.4, 0.0, 1.0, 1.0); /* ease-in과 유사한 효과 */
+        }
+        .box9 {
+            transition: 5s cubic-bezier(0.0, 0.0, 0.6, 1.0); /* ease-out과 유사한 효과 */
+        }
+        .box10 {
+            transition: 5s cubic-bezier(0.4, 0.0, 0.6, 1.0); /* ease-in-out과 유사한 효과 */
+        }
+
+    </style>
+ </head>
+ <body>
+    <div id = 'ex'>
+        <div class = 'box box1'>ease</div>
+        <div class = 'box box2'>linear</div>
+        <div class = 'box box3'>ease-in</div>
+        <div class = 'box box4'>ease-out</div>
+        <div class = 'box box5'>ease-in-out</div>
+
+        <div class = 'box box6'>cubic-bezier(ease)</div>
+        <div class = 'box box7'>cubic-bezier(linear)</div>
+        <div class = 'box box8'>cubic-bezier(ease-in)</div>
+        <div class = 'box box9'>cubic-bezier(ease-out)</div>
+        <div class = 'box box10'>cubic-bezier(ease-in-out)</div>
+
+    </div>
+ </body>
+ </html>
+<!-- 
+div class = 'box box 1' 이렇게 설정한 이유는 box 클래스와 box1 클래스를 모두 적용하기 위해서입니다.
+        <div class = 'box box1'>ease: 시작과 끝이 느리게 진행되는 전환 효과입니다.</div>
+        <div class = 'box box2'>linear: 일정한 속도로 전환됩니다.</div>
+        <div class = 'box box3'>ease-in: 시작이 느리고 끝이 빠릅니다.</div>
+        <div class = 'box box4'>ease-out: 시작이 빠르고 끝이 느립니다.</div>
+        <div class = 'box box5'>ease-in-out: 시작과 끝 모두가 느립니다.</div> -->
+

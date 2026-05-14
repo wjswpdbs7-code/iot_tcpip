@@ -1,0 +1,86 @@
+<!-- ex37_front_css_position.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container-static {
+            background-color: rgb(222, 224, 160);    
+        }
+        .test-static {
+            background-color: rgb(228, 158, 100);
+            margin: 5px;
+            padding: 5px;
+            position: static;
+        }
+        .container-relative {
+            background-color: rgb(160, 224, 222);
+        }
+        .test-relative {
+            background-color: rgb(100, 158, 228);
+            margin: 5px;
+            padding: 5px;
+            position: relative;
+        }
+        #test-relative-3 {
+            left: 5px;
+            top: 3px;
+        }
+        .test-fixed {
+            background-color: rgb(222, 160, 224);
+            position: fixed;/* 위치 고정 */
+            width: 200px; height: 50px;/* 크기 설정 */
+            left: 0px; top: 0px; /* 전체 화면 기준으로 어디에 고정할지 설정 */
+            font-size: 8px;
+        }
+        .container-absolute {
+            background-color: rgb(224, 222, 160);
+            position: relative; /* 부모 요소를 기준으로 절대 위치 지정 */
+            width: 200px; height: 200px;
+            background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg);
+        }
+        .test-absolute {
+            background-color: rgb(160, 54, 160);
+            position: absolute; /* 절대 위치 지정 */
+            width: 150px; height: 50px; /* 크기 설정 */
+            left: 10px; top: 10px; /* !!부모 요소를 기준!!으로 위치 설정 */
+        }
+    </style>
+ </head>
+ <body>
+    <div class="container-static">
+        <div class="test-static">static content 1</div>
+        <div class="test-static">static content 2</div>
+        <div class="test-static">static content 3</div>
+        <div class="test-static">static content 4</div>
+    </div>
+    스태틱이란 기본값으로, 요소는 문서의 정상적인 흐름에 따라 배치됩니다.  
+    
+    <div class="container-relative">
+        <div class="test-relative">relative content 1</div>
+        <div class="test-relative">relative content 2</div>
+        <div class="test-relative" id="test-relative-3">relative content 3</div>
+        <div class="test-relative">relative content 4</div>
+    </div>
+    레러티브란 요소가 문서의 정상적인 흐름에 따라 배치되지만, 위치를 조정할 수 있습니다.
+
+    <div class="container-fixed">
+        <div class="test-fixed">이것은 fixed content로<br>픽스드는 요소가 브라우저 창에 고정되어, <br>스크롤해도 위치가 변하지 않습니다.<br> 예시 : 광고창</div>
+
+    </div>
+
+    <div class="container-absolute">
+        <div class="test-absolute">absolute content</div>
+    </div>
+
+
+
+
+    <br><br><br><br><br><br>
+앱솔루트는 부모가 반드시 relative여야 합니다.  <br> 예시 : 팝업창
+
+
+ </body>
+ </html>

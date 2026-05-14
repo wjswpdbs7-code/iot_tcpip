@@ -35,6 +35,16 @@ body {
     flex-grow: 1;
     width: 150px;
 }
-.login1 input[required] { /* []에는 조건 속성값이 들어감 */ 
+.login1 input[required] { 
     border: 1px solid red;
+}
+.login1 input[readonly] { 
+    border: none
+}
+.login1 button { 
+    border-radius: 20px;
+    border: 1px solid #82ccd6;
+    display: block;  /* 버튼을 블록 요소로 만들어서 전체 너비를 차지하도록 설정 */
+    margin: 20px auto 0; /* 버튼을 가운데 정렬 */
+    padding: 5px 30px;
 }

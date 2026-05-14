@@ -1,0 +1,73 @@
+<!-- ex44_front_css_transition_menu.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container {
+                width: 1000px;
+                margin: 20px auto;
+            }
+            .cat_list {
+                list-style: none;
+            }
+            .cat_list li {
+                float: left;
+                margin: 20px;
+            }
+            .cat_list img { width: 200px; height: 200px; }
+
+            .cat_list img:hover {
+                transform: scale(1.2); /* 이미지 크기를 1.2배로 확대 */
+                transition: transform 0.3s ease; /* 부드러운 확대 효과 */
+                     .caption {
+                    display: block; /* 캡션을 보이도록 설정 */
+                }
+
+            }
+
+
+
+            .caption {
+                display: none; /* 기본적으로 캡션을 숨김 */
+                text-align: center;
+                margin-top: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+    <div class = "container">
+        <h1 id = "cat-title" style="text-align: center;">고영이</h1>
+        <ul class = "cat_list">
+            <li>
+                <img src = "img/angry_cat.jpg">
+            <div class = "caption">
+                <h1>화난 고영이</h1>
+                <p>사료를 다오</p>
+            </div>
+        </li>
+
+            <li>
+                <img src = "img/ddabong_cat.jpg">
+                <div class = "caption">
+                    <h1>따봉 고영이</h1>
+                    <p>따봉을 주세용</p>
+                </div>
+            </li>
+            <li>
+                <img src = "img/oioi_cat.jpg">
+                <div class = "caption">
+                    <h1>oioi 고영이</h1>
+                    <p>oioi!!</p>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+    </body>
+</html>

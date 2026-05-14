@@ -1,0 +1,59 @@
+<!-- ex41_front_css_rotate.html -->
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회전</title>
+    <style>
+        #container {
+            width: 800px; 
+            height: 200px;
+            margin: auto; 
+            background-color: yellow;
+        }
+        .origin {
+            width: 100px; 
+            height: 100px;
+            margin: 50px;
+            float: left; /*div는 기본적으로 아래로 정렬인것을 이 설정을 통해 왼쪽으로 정렬 */
+        }
+        .origin div {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid black;
+            
+        }
+        #rotate1:hover {/* 마우스 올렸을 때에만 */
+            transform: rotate(40deg); /* 시계 방향으로 40도 회전 */
+        }       
+        #rotate2:hover {/* 마우스 올렸을 때에만 */
+            transform: rotate(-140deg); /* 반시계 방향으로 140 도 회전 */
+        }
+        .origin img {
+            
+            width: 100px;
+            height: 100px;
+        }
+            
+
+    </style>
+ </head>
+ <body>
+    <div id = "container" >컨테이너
+        <div class="origin" id = "rotate1">
+            <img src = "img/cat1.jpg">
+                item 1
+            </div>
+        </div>
+        <div class="origin" id = "rotate2">
+            <img src = "img/cat1.jpg">
+                item 2
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

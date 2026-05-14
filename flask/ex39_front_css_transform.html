@@ -1,0 +1,61 @@
+<!-- ex39_front_css_transform.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>움직임 구현</title>
+    <style>
+        #container {
+            width: 800px; 
+            height: 200px;
+            margin: auto; 
+            background-color: yellow;
+        }
+        .origin {
+            width: 100px; 
+            height: 100px;
+            margin: 50px;
+            border: 1px solid black; 
+            float: left; /*div는 기본적으로 아래로 정렬인것을 이 설정을 통해 왼쪽으로 정렬 */
+        }
+        .origin div {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+        #movex:hover {/* 마우스 올렸을 때에만 */
+            transform: translateX(50px); /* X축으로 50px 이동 */
+        }
+        #movey:hover {/* 마우스 올렸을 때에만 */
+            transform: translateY(50px); /* Y축으로 50px 이동 */
+        }
+        #movexy:hover {/* 마우스 눌럿을 때만    */
+            transform: translate(50px, 50px); /* X축과 Y축으로 모두 50px 이동 */
+        }
+            
+
+    </style>
+ </head>
+ <body>
+    <div id = "container" >컨테이너
+        <div class="origin">
+            <div id = "movex">
+                item 1
+            </div>
+        </div>
+        <div class="origin">
+            <div id = "movey">
+                item 2
+            </div>
+        </div>
+        <div class="origin">
+            <div id = "movexy">
+                item 3
+            </div>
+        </div>
+    </div>
+        
+    </div>
+ </body>
+ </html>
