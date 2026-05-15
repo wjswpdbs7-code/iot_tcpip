@@ -14,11 +14,22 @@
             list-style: none;
             justify-content: flex-start;
         }
-        /* .li {
-        } */
-        .li.card { /* .li 요소 중에서 .card 클래스를 가진 요소 .li.card와 .card의 차이점으로는 */
+        div{
+            position: relative;
+        }
+        img {
             width: 200px;
             height: 200px;
+        }
+        div.caption {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            display: flex;/*이건 플렉스 컨테이너로 만들어 주는데 플렉스 컨테이너란 : 요소들을 일렬로 배치해주는 레이아웃 방식 */
+            flex-direction: column;/* 요소들을 세로로 배치 */
+            justify-content: center;/* 요소들을 수직으로 가운데 정렬 */
+            align-items: center;/* 요소들을 수평으로 가운데 정렬 */
+            /* opacity: 0; */
         }
         </style>
     </head>
