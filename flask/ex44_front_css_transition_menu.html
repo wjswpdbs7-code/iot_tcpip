@@ -10,44 +10,68 @@
         <style>
             .container {
                 width: 1000px;
-                margin: 20px auto;
+                height: 200px;
+                margin: 20px;
             }
             .cat_list {
                 list-style: none;
             }
             .cat_list li {
+                position: relative;
+                text-align: center;
                 float: left;
-                margin: 20px;
+                margin: 10px;
             }
             .cat_list img { width: 200px; height: 200px; }
 
             .cat_list img:hover {
-                transform: scale(1.2); /* 이미지 크기를 1.2배로 확대 */
+                /* transform: scale(1.2); */
                 transition: transform 0.3s ease; /* 부드러운 확대 효과 */
-                     .caption {
-                    display: block; /* 캡션을 보이도록 설정 */
-                }
-
             }
 
-
-
-            .caption {
-                display: none; /* 기본적으로 캡션을 숨김 */
+            .cat_list .caption {
+                position: absolute;
+                width: 200px;
+                height: 200px;
                 text-align: center;
-                margin-top: 10px;
+                opacity: 0; 
+                background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경 */
             }
+            .caption h1, .caption p {
+                color: white;
+            }
+            .cat_list li:hover .caption {
+                opacity: 1;
+                top: 200px;
+                transition: 2s ease; /* 부드러운 표시 효과 */
+                transform: translateY(-200px) scale(1.2); 
+            }
+            .cat_list li:hover img {
+                transform: scale(1.2); /* 이미지 확대 효과 */
+                transition: transform 2s ease; /* 부드러운 확대 효과 */
+            }
+            .cat_list li:hover [name="oioi"] {
+                transform: rotate(360deg) scale(1.2);
+                transition: transform 2s ease; /* 회전 효과 */
+            }
+            .cat_list li:hover [name="oioi_caption"] {
+                opacity: 1;
+                top: 200px;
+                transition: 2s ease; /* 부드러운 표시 효과 */
+                transform: rotate(360deg) translateY(-200px) scale(1.2);
+            }
+ 
 
         </style>
     </head>
     <body>
     <div class = "container">
-        <h1 id = "cat-title" style="text-align: center;">고영이</h1>
+        <h1 id = "cat-title" style="text-align: center;">고양이</h1>
         <ul class = "cat_list">
             <li>
                 <img src = "img/angry_cat.jpg">
             <div class = "caption">
-                <h1>화난 고영이</h1>
+                <h1>화난 고양이</h1>
                 <p>사료를 다오</p>
             </div>
         </li>
@@ -55,14 +79,14 @@
             <li>
                 <img src = "img/ddabong_cat.jpg">
                 <div class = "caption">
-                    <h1>따봉 고영이</h1>
+                    <h1>따봉 고양이</h1>
                     <p>따봉을 주세용</p>
                 </div>
             </li>
             <li>
-                <img src = "img/oioi_cat.jpg">
-                <div class = "caption">
-                    <h1>oioi 고영이</h1>
+                <img src = "img/oioi_cat.jpg" name = "oioi">
+                <div class = "caption" name = "oioi_caption">
+                    <h1>oioi 고양이</h1>
                     <p>oioi!!</p>
 
                 </div>
