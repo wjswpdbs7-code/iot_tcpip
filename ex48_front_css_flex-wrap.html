@@ -1,0 +1,75 @@
+<!-- ex48_front_css_flex-wrap.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플렉스 워프</title>
+    <style>
+        .container {
+            display: flex; 
+            background-color: gray;
+            border: 1px solid black;
+        }
+        #option1 {
+            flex-wrap: nowrap; /* 기본값, 줄 바꿈 없음  */
+        }
+        #option2 {
+            flex-wrap: wrap; /* 필요에 따라 줄 바꿈 허용 */
+        }
+        #option3 {
+            flex-wrap: wrap-reverse; /* 줄 바꿈 허용, 역순으로 배치 */
+        }
+        .box {
+            padding: 20px;
+            margin: 10px;
+            background-color: black;
+            width: 100px;
+            /* color: white;
+            text-align: center; */
+        }
+        p {
+            color: white;
+            text-align: center;
+        }
+        
+    </style>
+ </head>
+ <body>
+    <h1>브라우저 폭을 조정해보쇼</h1>
+
+    <div class="container" id="option1">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+        <div class="box"><p>5</p></div>
+        <div class="box"><p>6</p></div>
+    </div>
+    <div class="container" id="option2">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+        <div class="box"><p>5</p></div>
+        <div class="box"><p>6</p></div>
+    </div>
+    <div class="container" id="option3">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+        <div class="box"><p>5</p></div>
+        <div class="box"><p>6</p></div>
+    </div>
+
+    플랙스 워프는 플렉스 아이템이 컨테이너의 폭을 초과할 때 자동으로 줄 바꿈을 허용하는 기능입니다.
+    <br>
+    nowrap는 줄 바꿈이 허용되지 않으며,
+    <br> 
+    wrap은 줄 바꿈이 허용되고, 
+    <br>
+    wrap-reverse는 줄 바꿈이 허용되며 역순으로 배치됩니다.
+
+ </body>
+ </html>

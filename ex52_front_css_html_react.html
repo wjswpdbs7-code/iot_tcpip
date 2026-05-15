@@ -1,0 +1,57 @@
+<!-- ex52_front_css_html_react.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 디자인</title>
+    <style>
+        .my_header, .my_footer {
+            background-color: blue;
+            height: 100px;
+            text-align: center;
+        }
+        .container {
+            background-color: rgb(142, 223, 182);
+            display: flex;/* 플렉스 컨테이너로 설정 */
+            flex-direction: row;/* 수평 정렬 */
+            margin: auto;
+        }
+        .flex-item {
+            margin: 10px auto;
+            padding: 10px;
+            width: 150px;
+            height: 100px;
+            border-radius: 10px; 
+            background-color: rgb(70, 114, 29);
+
+        }
+         /* 반응형 디자인을 위한 미디어 쿼리 */
+         @media (max-width: 800px) {/* 화면 너비가 800px 이하일 때 적용 */
+             .container {
+                 flex-direction: column; /* 수직 정렬로 변경 */
+             }
+         }
+         @media (min-width: 801px){/* 화면 너비가 801px 이상 1024px 이하일 때 적용 */
+             .container {
+                 flex-direction: row; /* 수평 정렬 유지 */
+             }
+            }
+    </style>
+</head>
+ <body>
+    <div class="my_header">검색창</div>
+
+    <div class="container">
+        <div class="flex-item">컨텐츠 박스1</div>
+        <div class="flex-item">컨텐츠 박스2</div>
+        <div class="flex-item">컨텐츠 박스3</div>
+        <div class="flex-item">컨텐츠 박스4</div>
+        
+
+    </div>
+    <div class="my_footer">회사 소개글</div>
+
+    </div>
+ </body>
+ </html>

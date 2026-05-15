@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>my_card</title>
+        <style>
+        .container {
+            display: flex; 
+            background-color: gray;
+            margin : 10px;
+        }
+        .cat_list {
+            list-style: none;
+            justify-content: flex-start;
+        }
+        /* .li {
+        } */
+        .li.card { /* .li 요소 중에서 .card 클래스를 가진 요소 .li.card와 .card의 차이점으로는 */
+            width: 200px;
+            height: 200px;
+        }
+        </style>
+    </head>
+    <body>
+        <h1 id = "title">원하는 고양이를 골라주세용</h1>
+        <h2 id = "sub_title">입양 가능 목록</h2>
+        <div class = "container">
+            <ul class = "cat_list">
+                <li class = "card">
+                        <img src = "img/angry_cat.jpg" name="angry_img">
+                    <div class = "caption">
+                        <h1>빡친 고양이</h1>
+                        <p>사료를 다오</p>
+                    </div>
+                </li>
+
+                <li class = "card">
+                    <img src = "img/ddabong_cat.jpg">
+                    <div class = "caption" name = "ddabong_img">
+                        <h1>따봉 고양이</h1>
+                        <p>따봉을 주세용</p>
+                    </div>
+                </li>
+                <li class = "card">
+                    <img src = "img/oioi_cat.jpg" name = "oioi_img">
+                    <div class = "caption" name = "oioi_caption">
+                        <h1>oioi 고양이</h1>
+                        <p>oioi!!</p>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

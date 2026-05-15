@@ -1,0 +1,88 @@
+<!-- ex50_front_css_flex-align-items.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세로 정렬</title>
+    <style>
+        .container {
+            display: flex; 
+            background-color: gray;
+            border: 1px solid black;
+            margin : 10px;
+            height: 200px;
+        }
+        #option1 {
+            align-items: flex-start; /* 위쪽 정렬 */
+        }
+        #option2 {
+            align-items: flex-end; /* 아래쪽 정렬 */
+        }
+        #option3 {
+            align-items: center; /* 가운데 정렬 */
+        }
+        #option4 {
+            align-items: baseline; /* 요소의 높이를 컨테이너에 맞춤 (기본값) */
+        }
+        #option5 {
+            align-items: stretch; /* 요소의 높이를 컨테이너에 맞춤 (기본값) */
+        }
+        .box {
+            padding: 20px;
+            margin: 10px;
+            background-color: black;
+            width: 100px;
+        }
+        .box p {        
+        color: white;
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="option1">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <P> ↑ Flex-Start: 컨테이너의 위쪽에 정렬 </P>
+    <div class="container" id="option2">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <P> ↑ Flex-End: 컨테이너의 아래쪽에 정렬 </P>
+    <div class="container" id="option3">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <P> ↑ Center: 컨테이너의 가운데에 정렬 </P>
+    <div class="container" id="option3">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p style="font-size: 10px;">2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p style="font-size: 35px;">4</p></div>
+    </div>
+    <P> ↑ (Center):폰트 크기가 달라서 정렬이 깨지는 문제</P>
+    <div class="container" id="option4">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p style="font-size: 10px;">2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p style="font-size: 35px;">4</p></div>
+    </div>
+    <P> ↑ Baseline: 요소의 텍스트 기준선에 맞춰 정렬 </P>
+    <div class="container" id="option5">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <P> ↑ Stretch: 요소의 높이를 컨테이너에 맞춤 (기본값) </P>
+    
+</body>
+</html>
