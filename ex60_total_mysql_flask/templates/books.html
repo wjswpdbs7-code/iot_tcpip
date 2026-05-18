@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}도서 목록{% endblock %}
+
+{% block content %}
+<h2>전체 도서 목록</h2>
+<div id = "booklist"> 도서 목록을 로딩 중입니다...</div>
+<script>
+    async function loadBooks(){
+        const res = await fetch('/api/books');
+        const books = await res.json();
+
+        if(books.length === 0){ //등록된 도서가 없으면
+            document.getElementById('bookList').innerHTML = '<p>등록 도서 없음</p>'
+            return;
+        }
+        document.getElementById('bookList').innerHTML = books.map(book=>` 
+            <div>
+                <div style="display: flex; justify-content: space-between;">
+                    <strong>${book.bookname}</strong>
+                    <span style="color:#777777">(출판사: ${book.publisher})</span>
+                    <div style="color:green">${book.price}원</div>
+                </div>
+                <button onclick="orderBook(${book.bookid}, ${book.price})">주문하기</button>    
+            </div>
+
+        `).join(''); 
+    }
+    async function orderBook(bookid, price) {
+        if(!confirm('이 도서를 주문하시겠습니까?')) return;
+        const
+        res = await fetch('/api/order',
+            {
+                method:'POST', headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({bookid, price})
+            }
+        );
+        if(res.ok){
+            alert('주문 완료');location.href='/my_orders'; // 주문이 완료되면 나의 주문 내역 페이지로 이동
+        } else {
+            alert('주문 실패'); // 주문 실패 시 알림
+        }
+    }
+    loadBooks();
+</script>
+{% endblock %}
