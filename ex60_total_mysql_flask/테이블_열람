@@ -1,0 +1,47 @@
+mysql> show tables;
++---------------------------+
+| Tables_in_bookstore_flask |
++---------------------------+
+| book                      |
+| customer                  |
+| orders                    |
++---------------------------+
+3 rows in set (0.01 sec)
+
+mysql> desc book
+    -> ;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| bookid    | int         | NO   | PRI | NULL    | auto_increment |
+| bookname  | varchar(40) | NO   |     | NULL    |                |
+| publisher | varchar(40) | NO   |     | NULL    |                |
+| price     | int         | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> desc customor;
+ERROR 1146 (42S02): Table 'bookstore_flask.customor' doesn't exist
+mysql> desc customer;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| custid   | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(40)  | NO   |     | NULL    |                |
+| address  | varchar(40)  | YES  |     | NULL    |                |
+| phone    | varchar(40)  | YES  |     | NULL    |                |
+| password | varchar(255) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc orders;
++-----------+------+------+-----+---------+----------------+
+| Field     | Type | Null | Key | Default | Extra          |
++-----------+------+------+-----+---------+----------------+
+| orderid   | int  | NO   | PRI | NULL    | auto_increment |
+| custid    | int  | YES  | MUL | NULL    |                |
+| bookid    | int  | YES  | MUL | NULL    |                |
+| saleprice | int  | YES  |     | NULL    |                |
+| orderdate | date | YES  |     | NULL    |                |
++-----------+------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
