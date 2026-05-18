@@ -54,7 +54,7 @@ def api_register():
     cur.close()
     return jsonify({'success': True, 'message': '회원 가입 잘 되었음'})
 
-@app.route('/api/login', methods=['POST'])
+@app.route('/api/login', methods=['POST']) 
 def api_login():
     data = request.get_json()
     cur = mysql.connection.cursor()
@@ -66,10 +66,10 @@ def api_login():
         session['user_id'] = user['id']
         session['user_name'] = user['name']
         return jsonify({'success': True, 'message': '로그인 성공'})
-    return jsonify({'success': False, 'message': 'ID 또는 비밀번호가 잘못되었습니다.  bb'}), 401
+    return jsonify({'success': False, 'message': 'ID 또는 비밀번호가 잘못되었습니다.'}), 401
 
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1')
+    app.run(debug=True, host='127.0.0.1', port=5000)
 
 
 
