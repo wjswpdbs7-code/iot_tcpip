@@ -19,6 +19,8 @@
             publisher: document.getElementById('publisher').value,
             price: document.getElementById('price').value
         };
+        //한단어씩 설명:  document.getElementById('addBookForm') -> HTML 폼 요소(addBookForm이란 id를 가진 요소)를 선택
+        //
         
         const res = await fetch('/api/add_book', {
             method: 'POST',

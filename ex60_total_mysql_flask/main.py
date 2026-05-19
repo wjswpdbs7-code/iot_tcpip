@@ -49,10 +49,11 @@ def books_page():
     if not is_logged_in(): return redirect(url_for('index'))
     return render_template('books.html')
 
-@app.route('/add_book', methods=['POST'])
+@app.route('/add_book', methods=['POST']) 
 def add_book():
     if not is_logged_in(): return redirect(url_for('index'))
     return render_template('add_book.html')
+
 
 @app.route('/api/books', methods=['GET'])
 def api_get_books():
@@ -61,6 +62,15 @@ def api_get_books():
     books = cur.fetchall()
     cur.close()
     return jsonify(books)
+
+@app.route('/api/add_book', methods=['POST'])
+def api_add_book():
+    data = request.get_json()
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO book (bookname, publisher, price) VALUES (%s, %s, %s)", (data['bookname'], data['publisher'], data['price']))
+    mysql.connection.commit()
+    cur.close()
+    return jsonify({'success': True})
 
 @app.route('/api/order', methods=['POST'])
 def api_order():
@@ -116,7 +126,7 @@ def api_login():
     cur.close()
     if user and check_password_hash(user['password'], data['password']):
         session['logged_in'] = True
-        session['user_id'] = user['id'] 
+        session['user_id'] = user['custid'] 
         session['user_name'] = user['name']
         return jsonify({'success': True, 'message': '로그인 성공'})
     return jsonify({'success': False, 'message': 'ID 또는 비밀번호가 잘못되었습니다.'}), 401
@@ -125,39 +135,11 @@ if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1', port=5000)
 
 
-#테이블 내부 데이터 삭제 
-# mysql> DELETE FROM customer;
-
-
-
-# 127.0.0.1 - - [18/May/2026 15:16:01] "POST /api/login HTTP/1.1" 500 -
-# Traceback (most recent call last):
-#   File "C:\Users\korea_hrd_1_12\miniconda3\envs\iot1\Lib\site-packages\flask\app.py", line 1536, in __call__
-#     return self.wsgi_app(environ, start_response)
-#            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-#   File "C:\Users\korea_hrd_1_12\miniconda3\envs\iot1\Lib\site-packages\flask\app.py", line 1514, in wsgi_app
-#     response = self.handle_exception(e)
-#   File "C:\Users\korea_hrd_1_12\miniconda3\envs\iot1\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-#     response = self.full_dispatch_request()
-#   File "C:\Users\korea_hrd_1_12\miniconda3\envs\iot1\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-#     rv = self.handle_user_exception(e)
-#   File "C:\Users\korea_hrd_1_12\miniconda3\envs\iot1\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-#     rv = self.dispatch_request()
-#   File "C:\Users\korea_hrd_1_12\miniconda3\envs\iot1\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-#     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-#            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-#   File "C:\Users\korea_hrd_1_12\Desktop\hrd\iot_tcpip\ex60_total_mysql_flask\main.py", line 66, in api_login
-#     session['user_id'] = user['id']
-#                          ~~~~^^^^^^
-# KeyError: 'id'
-# 위의 에러는 로그인 시도 시 발생한 것으로, 'id' 키가 user 딕셔너리에 존재하지 않아서 발생한 KeyError입니다. 이는 데이터베이스에서 사용자 정보를 가져올 때 'id' 필드가 포함되지 않았거나, 쿼리 결과가 예상과 다르게 반환되었을 가능성이 있습니다. 데이터베이스 쿼리를 확인하여 'id' 필드가 올바르게 선택되고 있는지, 그리고 데이터베이스에 해당 사용자가 존재하는지 확인해야 합니다.
-
-
-
-
-
-
-
+# @app.route란 Flask에서 라우트를 정의하는 데코레이터입니다. 라우트는 웹 애플리케이션에서 특정 URL 경로에 대한 요청을 처리하는 함수를 연결하는 역할을 합니다. 
+#예를 들어, @app.route('/api/login', methods=['POST'])는 '/api/login' 경로에 대한 POST 요청이 들어왔을 때 api_login 함수를 실행하도록 설정하는 라우트입니다. 
+#이 라우트는 로그인 API 엔드포인트를 정의하며, 클라이언트가 로그인 정보를 POST 방식으로 전송할 때 이 함수가 호출되어 로그인 처리를 수행합니다.
+#api 는 application programming interface의 약자로, 소프트웨어 간의 상호 작용을 가능하게 하는 인터페이스입니다. API는 특정 기능을 수행하는 함수를 제공하여 다른 소프트웨어가 해당 기능을 사용할 수 있도록 합니다. 예를 들어, 로그인 API는 사용자가 로그인할 때 필요한 기능을 제공하는 API입니다. 클라이언트는 로그인 정보를 API에 전송하고, API는 이를 처리하여 로그인 결과를 반환합니다.
+# 이 코드에서 api는 
 
 
 

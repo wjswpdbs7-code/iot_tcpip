@@ -15,8 +15,8 @@
             return;
         }
         document.getElementById('bookList').innerHTML = books.map(book=>` 
-            <div>
-                <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between align-items: center;">>
+                <div>
                     <strong>${book.bookname}</strong>
                     <span style="color:#777777">(출판사: ${book.publisher})</span>
                     <div style="color:green">${book.price}원</div>
